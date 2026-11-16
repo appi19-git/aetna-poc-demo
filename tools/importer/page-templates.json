@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.trinetaetna.com/home"
+      ],
+      "representativeUrl": "https://www.trinetaetna.com/home",
+      "description": "TriNet Aetna homepage: welcome banner, hero with overlapping text card, two-column member info, benefit icon cards",
+      "urlPattern": "/*",
+      "blocks": [
+        {
+          "name": "hero-card",
+          "instances": [
+            "main div.container:has(> div > .hero-card)"
+          ]
+        },
+        {
+          "name": "columns-divider",
+          "instances": [
+            "main section > div.container.md\\:flex-row"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            "main section > div.container.flex-wrap:has(> div.bg-gray-100)"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "rc1",
+          "name": "Welcome banner",
+          "selector": [
+            "main > div:has(> section.bg-aetna_primary-600)"
+          ],
+          "style": "purple, center",
+          "blocks": [],
+          "defaultContent": [
+            "section.bg-aetna_primary-600 div.text-center > p"
+          ]
+        },
+        {
+          "id": "rc2",
+          "name": "Hero with overlapping text card",
+          "selector": [
+            "main > div:has(.hero-card)"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-card"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc3",
+          "name": "Member website / Already a member",
+          "selector": [
+            "main > div:has(> section.bg-aetna_gray-50 > div.container.md\\:flex-row)"
+          ],
+          "style": "light-grey",
+          "blocks": [
+            "columns-divider"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "rc4",
+          "name": "Benefits and coverage",
+          "selector": [
+            "main > div:has(> section.bg-white)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icon"
+          ],
+          "defaultContent": [
+            "section.bg-white > p.text-3xl"
+          ]
+        }
+      ]
+    }
+  ]
+}

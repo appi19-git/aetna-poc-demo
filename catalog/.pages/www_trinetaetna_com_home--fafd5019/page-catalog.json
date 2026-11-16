@@ -1,0 +1,349 @@
+{
+  "schemaVersion": 2,
+  "url": "https://www.trinetaetna.com/home",
+  "title": "Trinet | Home",
+  "timestamp": "2026-11-12T17:42:07.977Z",
+  "duration": "8.5s",
+  "cleanup": {
+    "elementsRemoved": 0,
+    "types": [],
+    "cookieConsentDismissed": false,
+    "lateConsentOverlaysRemoved": 0,
+    "removed": []
+  },
+  "snapshot": {
+    "html": "page.html",
+    "unresolvedSelectors": []
+  },
+  "images": [
+    {
+      "url": "https://simple-tina-bucket.s3.us-east-1.amazonaws.com/default/logos/aetna_heart.png",
+      "type": "img"
+    },
+    {
+      "url": "https://simple-tina-bucket.s3.us-east-1.amazonaws.com/default/trinet-logo.png",
+      "type": "img"
+    },
+    {
+      "url": "https://www.trinetaetna.com/_next/image?url=https%3A%2F%2Fsimple-tina-bucket.s3.us-east-1.amazonaws.com%2Fdefault%2Faetna-hero-alt.jpg&w=2048&q=75",
+      "type": "background"
+    },
+    {
+      "url": "https://www.trinetaetna.com/_next/image?url=https%3A%2F%2Fsimple-tina-bucket.s3.us-east-1.amazonaws.com%2Fdefault%2Faetna-hero-alt.jpg&w=3840&q=75",
+      "type": "background"
+    }
+  ],
+  "skeleton": {
+    "signature": "sB(sB,sB(sB,s),3x1B,sB(s,3x1))",
+    "nodeMap": {
+      "r": "body",
+      "rc1": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(1)",
+      "rc2": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(2)",
+      "rc2c1": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(2) > div.bg-aetna_gray-50.w-full.h-full > section.flex-1.relative.transition.duration-150.ease-out.body-font.overflow-hidden.py-12.bg-aetna_gray-50.pt-0.pb-0 > div.container.mx-auto.relative.pb-\\[5\\%\\].sm\\:pb-\\[5vh\\].bg-aetna_gray-50 > div.w-\\[136\\%\\].-left-\\[18\\%\\].relative.h-\\[40vh\\].sm\\:h-\\[80vh\\].overflow-clip.flex.items-center.justify-center\\].xl\\:rounded-b-3xl",
+      "rc2c2": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(2) > div.bg-aetna_gray-50.w-full.h-full > section.flex-1.relative.transition.duration-150.ease-out.body-font.overflow-hidden.py-12.bg-aetna_gray-50.pt-0.pb-0 > div.container.mx-auto.relative.pb-\\[5\\%\\].sm\\:pb-\\[5vh\\].bg-aetna_gray-50 > div.flex.items-center.justify-center",
+      "rc3": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(3)",
+      "rc4": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(4)",
+      "rc4c1": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(4) > section.flex-1.relative.transition.duration-150.ease-out.body-font.overflow-hidden.py-12.bg-white > p.text-3xl.font-bold.text-center.mb-6.text-aetna_primary-600",
+      "rc4c2": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(4) > section.flex-1.relative.transition.duration-150.ease-out.body-font.overflow-hidden.py-12.bg-white > div.py-0.container.mx-auto.relative.px-2.md\\:px-4.flex.flex-wrap.gap-4.text-left"
+    },
+    "sections": [
+      {
+        "id": "rc1",
+        "selector": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(1)",
+        "layout": null,
+        "hasBg": true,
+        "hint": "default-content",
+        "background": "#7d3f98",
+        "backgroundImage": null,
+        "colored": true,
+        "paintSelector": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(1) > section.flex-1.relative.transition.duration-150.ease-out.body-font.overflow-hidden.py-4.bg-aetna_primary-600"
+      },
+      {
+        "id": "rc2",
+        "selector": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(2)",
+        "layout": null,
+        "hasBg": true,
+        "hint": "default-content",
+        "background": "#f5f5f5",
+        "backgroundImage": null,
+        "colored": true,
+        "paintSelector": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(2) > div.bg-aetna_gray-50.w-full.h-full > section.flex-1.relative.transition.duration-150.ease-out.body-font.overflow-hidden.py-12.bg-aetna_gray-50.pt-0.pb-0 > div.container.mx-auto.relative.pb-\\[5\\%\\].sm\\:pb-\\[5vh\\].bg-aetna_gray-50"
+      },
+      {
+        "id": "rc3",
+        "selector": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(3)",
+        "layout": "3x1",
+        "hasBg": true,
+        "hint": "block",
+        "background": "#f5f5f5",
+        "backgroundImage": null,
+        "colored": true,
+        "paintSelector": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(3) > section.flex-1.relative.transition.duration-150.ease-out.body-font.overflow-hidden.py-12.bg-aetna_gray-50"
+      },
+      {
+        "id": "rc4",
+        "selector": "#__next > div.min-h-screen.flex.flex-col.font-cvs > main.flex-1.text-gray-800.bg-gradient-to-br.from-white.to-gray-50.flex.flex-col > div:nth-of-type(4)",
+        "layout": null,
+        "hasBg": true,
+        "hint": "block",
+        "background": "#ffffff",
+        "backgroundImage": null,
+        "colored": false,
+        "paintSelector": null
+      }
+    ],
+    "invalidIgnore": []
+  },
+  "pageLayout": {
+    "box": {
+      "y": 66,
+      "height": 1864
+    },
+    "splits": [
+      {
+        "selector": "div.container.relative > div.h-96.w-\\[1px\\]",
+        "sides": [
+          [
+            0.49955357142857143,
+            0.5004464285714286
+          ]
+        ],
+        "top": 959,
+        "bottom": 1442,
+        "cover": 0.25912017167381973,
+        "above": 0
+      }
+    ],
+    "start": {
+      "kind": "paragraph"
+    }
+  },
+  "blocks": [
+    {
+      "id": "16e82e4731a2",
+      "type": "default-content",
+      "detectionTier": 1,
+      "selector": "#__next > div > main > div:nth-child(1)",
+      "bounds": {
+        "x": 0,
+        "y": 66,
+        "width": 1440,
+        "height": 80
+      },
+      "visualChars": {
+        "colorScheme": "dark",
+        "density": "minimal",
+        "imagePattern": "noimg",
+        "hasGrid": false,
+        "structure": "text"
+      },
+      "description": "",
+      "features": {
+        "skeleton": "T",
+        "variant": "Tw",
+        "variantClean": "Tk"
+      },
+      "screenshot": null,
+      "html": "blocks/16e82e4731a2.html"
+    },
+    {
+      "id": "4f82ad361f35",
+      "type": "unknown",
+      "detectionTier": 2,
+      "selector": "#__next > div > main > div:nth-child(2) > div > section > div > div.w-\\[136\\%\\].-left-\\[18\\%\\].relative.h-\\[40vh\\].sm\\:h-\\[80vh\\].overflow-clip.flex.items-center.justify-center\\].xl\\:rounded-b-3xl",
+      "bounds": {
+        "x": -96,
+        "y": 146,
+        "width": 1632,
+        "height": 720
+      },
+      "visualChars": {
+        "colorScheme": "light",
+        "density": "minimal",
+        "imagePattern": "large",
+        "hasGrid": false,
+        "structure": ""
+      },
+      "description": "w-136",
+      "features": {
+        "skeleton": "~@",
+        "variant": "~@",
+        "variantClean": "~@"
+      },
+      "screenshot": "blocks/4f82ad361f35.jpg",
+      "html": "blocks/4f82ad361f35.html"
+    },
+    {
+      "id": "6bdf5d3957e4",
+      "type": "default-content",
+      "detectionTier": 1,
+      "selector": "#benefits-information-made-easy",
+      "bounds": {
+        "x": 744,
+        "y": 629,
+        "width": 520,
+        "height": 40
+      },
+      "visualChars": {
+        "colorScheme": "light",
+        "density": "minimal",
+        "imagePattern": "noimg",
+        "hasGrid": false,
+        "structure": "heading"
+      },
+      "description": "text-aetna-primary-600",
+      "features": {
+        "skeleton": "T",
+        "variant": "Tp",
+        "variantClean": "Tk"
+      },
+      "screenshot": null,
+      "html": "blocks/6bdf5d3957e4.html"
+    },
+    {
+      "id": "a0af52080c34",
+      "type": "default-content",
+      "detectionTier": 1,
+      "selector": "#aetna-knows-that-choice-and-affordability-in-a-healthcare-plan-is-important-to-trinet-members\\.",
+      "bounds": {
+        "x": 744,
+        "y": 685,
+        "width": 520,
+        "height": 90
+      },
+      "visualChars": {
+        "colorScheme": "light",
+        "density": "minimal",
+        "imagePattern": "noimg",
+        "hasGrid": false,
+        "structure": "heading"
+      },
+      "description": "text-aetna-primary-600",
+      "features": {
+        "skeleton": "T",
+        "variant": "Tp",
+        "variantClean": "Tk"
+      },
+      "screenshot": null,
+      "html": "blocks/a0af52080c34.html"
+    },
+    {
+      "id": "754cdb819b25",
+      "type": "default-content",
+      "detectionTier": 1,
+      "selector": "#__next > div > main > div:nth-child(2) > div > section > div > div.flex.items-center.justify-center > div > div > p",
+      "bounds": {
+        "x": 744,
+        "y": 791,
+        "width": 520,
+        "height": 72
+      },
+      "visualChars": {
+        "colorScheme": "light",
+        "density": "minimal",
+        "imagePattern": "noimg",
+        "hasGrid": false,
+        "structure": "text"
+      },
+      "description": "m-0",
+      "features": {
+        "skeleton": "T",
+        "variant": "Tk",
+        "variantClean": "Tk"
+      },
+      "screenshot": null,
+      "html": "blocks/754cdb819b25.html"
+    },
+    {
+      "id": "72f1475d2726",
+      "type": "columns",
+      "detectionTier": 1,
+      "selector": "#__next > div > main > div:nth-child(3)",
+      "bounds": {
+        "x": 0,
+        "y": 911,
+        "width": 1440,
+        "height": 579
+      },
+      "visualChars": {
+        "colorScheme": "light",
+        "density": "dense",
+        "imagePattern": "noimg",
+        "hasGrid": true,
+        "structure": "heading + text + list + link"
+      },
+      "description": "",
+      "features": {
+        "skeleton": "[T]",
+        "variant": "[Tkp|Tkpw]",
+        "variantClean": "[Tk]"
+      },
+      "screenshot": "blocks/72f1475d2726.jpg",
+      "html": "blocks/72f1475d2726.html"
+    },
+    {
+      "id": "ebb0334db1e4",
+      "type": "default-content",
+      "detectionTier": 1,
+      "selector": "#__next > div > main > div:nth-child(4) > section > p",
+      "bounds": {
+        "x": 0,
+        "y": 1538,
+        "width": 1440,
+        "height": 48
+      },
+      "visualChars": {
+        "colorScheme": "light",
+        "density": "minimal",
+        "imagePattern": "noimg",
+        "hasGrid": false,
+        "structure": "text"
+      },
+      "description": "text-3xl",
+      "features": {
+        "skeleton": "T",
+        "variant": "Tp",
+        "variantClean": "Tk"
+      },
+      "screenshot": null,
+      "html": "blocks/ebb0334db1e4.html"
+    },
+    {
+      "id": "4fcdd0142add",
+      "type": "cards",
+      "detectionTier": 1,
+      "selector": "#__next > div > main > div:nth-child(4) > section > div",
+      "bounds": {
+        "x": 120,
+        "y": 1610,
+        "width": 1200,
+        "height": 272
+      },
+      "visualChars": {
+        "colorScheme": "light",
+        "density": "minimal",
+        "imagePattern": "noimg",
+        "hasGrid": true,
+        "structure": "text + link"
+      },
+      "description": "py-0",
+      "features": {
+        "skeleton": "[T]",
+        "variant": "[Tbpw]",
+        "variantClean": "[Tk]",
+        "set": true
+      },
+      "screenshot": "blocks/4fcdd0142add.jpg",
+      "html": "blocks/4fcdd0142add.html"
+    }
+  ],
+  "globalElements": {
+    "header": {
+      "selector": "div.min-h-screen.flex > div:nth-child(1)"
+    },
+    "footer": {
+      "selector": "#page-footer"
+    },
+    "isFirstCapture": true
+  }
+}
