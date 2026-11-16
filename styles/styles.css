@@ -323,3 +323,32 @@ main .section.highlight {
   margin: 0;
   padding: 40px 0;
 }
+
+/* purple brand band (e.g. "Got a Question?" phone callout) */
+main .section.purple {
+  background-color: #7d3f98;
+  border-bottom: 10px solid #5d2f71;
+  color: #fff;
+  margin: 0;
+  padding: 48px 0;
+}
+
+main .section.purple h1,
+main .section.purple h2,
+main .section.purple h3,
+main .section.purple p,
+main .section.purple a:any-link {
+  color: #fff;
+}
+
+/* centered text section (e.g. Aetna State of Florida welcome / temporary ID card) */
+main .section.centered .default-content-wrapper {
+  max-width: 900px;
+  text-align: center;
+}
+
+main .section.centered .default-content-wrapper h3 + p + h3 {
+  margin-top: 40px;
+  padding-top: 40px;
+  border-top: 1px solid #d8d8d8;
+}
