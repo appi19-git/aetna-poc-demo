@@ -425,6 +425,7 @@ var CustomImportScript = (() => {
       }
     ]
   };
+  var SITE_METADATA = { Theme: "florida", Nav: "/nav", Footer: "/footer" };
   var parsers = {
     "carousel-hero": parse,
     "cards-icon-centered": parse2,
@@ -521,7 +522,8 @@ var CustomImportScript = (() => {
       });
       executeTransformers("afterTransform", main, payload);
       main.appendChild(document2.createElement("hr"));
-      WebImporter.rules.createMetadata(main, document2);
+      const meta = __spreadValues(__spreadValues({}, WebImporter.Blocks.getMetadata(document2)), SITE_METADATA);
+      main.append(WebImporter.Blocks.getMetadataBlock(document2, meta));
       WebImporter.rules.transformBackgroundImages(main, document2);
       WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
       params.fragments.forEach(({ element }) => {

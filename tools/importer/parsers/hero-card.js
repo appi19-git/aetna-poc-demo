@@ -5,25 +5,18 @@
  * Parser for hero (hero-card).
  * Source: https://www.trinetaetna.com/home
  * Selector: main div.container:has(> div > .hero-card)
- * Output: row 1 = image, row 2 = H1 + H2 subheading + body paragraph.
+ * Output: row 1 = hero photo (absolute URL); row 2 = H1 + H3 subheading + paragraph.
  */
 export default function parse(element, { document }) {
+  const ORIGIN = 'https://www.trinetaetna.com';
   const cells = [];
 
-  // Row 1: hero image. Alt comes from img alt, then img/wrapper title, then fallback.
   const lastFromSrcset = (srcset) => (srcset || '')
     .split(',').map((s) => s.trim().split(/\s+/)[0]).filter(Boolean).pop() || '';
-  const bgUrl = (el) => {
-    const style = (el.getAttribute('style') || '')
-      + ((typeof window !== 'undefined' && window.getComputedStyle && el.ownerDocument === window.document)
-        ? `;${window.getComputedStyle(el).backgroundImage}` : '');
-    const m = style.match(/url\(\s*['"]?([^'")]+)['"]?\s*\)/i);
-    return m ? m[1] : '';
-  };
 
-  // Media wrapper = first child div that is not the card holder
+  // Row 1: hero image from the media wrapper (the child that does not hold the card)
   const media = [...element.children].find((c) => !c.querySelector('.hero-card')) || element;
-  const srcImg = media.querySelector('img') || element.querySelector('img:not(.hero-card img)');
+  const srcImg = media.querySelector('img');
   let src = '';
   if (srcImg) {
     src = srcImg.getAttribute('src') || '';
@@ -36,56 +29,49 @@ export default function parse(element, { document }) {
     if (source) src = lastFromSrcset(source.getAttribute('srcset'));
   }
   if (!src) {
-    const bgEl = [media, ...media.querySelectorAll('*')].find((el) => bgUrl(el));
-    if (bgEl) src = bgUrl(bgEl);
+    // Live DOM renders the photo as an inline background (image-set(url(...) 1x, ...))
+    const bgEl = [media, ...media.querySelectorAll('[style]')]
+      .find((el) => /url\(/i.test(el.getAttribute('style') || ''));
+    if (bgEl) {
+      const m = bgEl.getAttribute('style').match(/url\(\s*(?:&quot;|['"])?([^'")&]+(?:&amp;[^'")&]+)*)/i);
+      if (m) src = m[1].replace(/&amp;/g, '&');
+    }
   }
 
   if (src) {
-    // Unwrap Next.js optimizer URLs (/_next/image?url=...) to the original asset
+    // Make absolute and unwrap Next.js optimizer URLs (/_next/image?url=...) to the original asset
     try {
-      const u = new URL(src, 'https://www.trinetaetna.com');
+      const u = new URL(src, ORIGIN);
       const inner = u.pathname.startsWith('/_next/image') && u.searchParams.get('url');
-      src = inner ? new URL(inner, 'https://www.trinetaetna.com').href : u.href;
+      src = inner ? new URL(inner, ORIGIN).href : u.href;
     } catch (e) { /* keep src as-is */ }
     const img = document.createElement('img');
     img.src = src;
-    const wrapperTitle = (srcImg && srcImg.parentElement && srcImg.parentElement.getAttribute('title'))
-      || media.getAttribute('title');
+    const titleHolder = srcImg && srcImg.closest('[title]');
     img.alt = ((srcImg && srcImg.getAttribute('alt')) || '').trim()
-      || ((srcImg && srcImg.getAttribute('title')) || '').trim()
-      || (wrapperTitle || '').trim()
-      || 'Women commuting together';
+      || ((titleHolder && titleHolder.getAttribute('title')) || '').trim()
+      || (media.getAttribute('title') || '').trim();
     cells.push([img]);
   } else {
     cells.push(['']);
   }
 
-  // Row 2: text content from the hero card
+  // Row 2: text content from the hero card, headings kept at source level
   const card = element.querySelector('.hero-card') || element;
+  const root = card.querySelector('.rich-text-markdown') || card;
   const contentCell = [];
-
-  const srcH1 = card.querySelector('h1');
-  if (srcH1) {
-    const h1 = document.createElement('h1');
-    h1.textContent = srcH1.textContent.trim();
-    contentCell.push(h1);
-  }
-
-  // Source uses an H3 subheading directly under the H1; convert to H2 for heading order
-  const srcSub = card.querySelector('h2, h3');
-  if (srcSub) {
-    const h2 = document.createElement('h2');
-    h2.textContent = srcSub.textContent.trim();
-    contentCell.push(h2);
-  }
-
-  card.querySelectorAll('p').forEach((srcP) => {
-    if (!srcP.textContent.trim()) return;
-    const p = document.createElement('p');
-    p.innerHTML = srcP.innerHTML.trim();
-    contentCell.push(p);
+  root.querySelectorAll('h1, h2, h3, h4, h5, h6, p').forEach((srcEl) => {
+    const text = srcEl.textContent.trim();
+    if (!text) return;
+    const tag = srcEl.tagName.toLowerCase();
+    const el = document.createElement(tag);
+    if (tag === 'p') {
+      el.innerHTML = srcEl.innerHTML.trim();
+    } else {
+      el.textContent = text;
+    }
+    contentCell.push(el);
   });
-
   cells.push([contentCell]);
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'Hero (hero-card)', cells });

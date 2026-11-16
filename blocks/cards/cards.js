@@ -7,8 +7,10 @@ export default function decorate(block) {
     const li = document.createElement('li');
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
+      // image cell: a picture, a bare img, or an authored :icon-name: (span.icon)
       if (div.children.length === 1
-        && (div.querySelector('picture') || div.querySelector(':scope > p > img'))) {
+        && (div.querySelector('picture') || div.querySelector(':scope > p > img')
+          || (div.querySelector('span.icon') && !div.textContent.trim()))) {
         div.className = 'cards-card-image';
       } else {
         div.className = 'cards-card-body';

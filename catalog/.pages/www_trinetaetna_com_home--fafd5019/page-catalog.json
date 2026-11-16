@@ -2,8 +2,8 @@
   "schemaVersion": 2,
   "url": "https://www.trinetaetna.com/home",
   "title": "Trinet | Home",
-  "timestamp": "2026-11-12T17:42:07.977Z",
-  "duration": "8.5s",
+  "timestamp": "2026-11-16T10:45:56.923Z",
+  "duration": "7.3s",
   "cleanup": {
     "elementsRemoved": 0,
     "types": [],
@@ -336,14 +336,5 @@
       "screenshot": "blocks/4fcdd0142add.jpg",
       "html": "blocks/4fcdd0142add.html"
     }
-  ],
-  "globalElements": {
-    "header": {
-      "selector": "div.min-h-screen.flex > div:nth-child(1)"
-    },
-    "footer": {
-      "selector": "#page-footer"
-    },
-    "isFirstCapture": true
-  }
+  ]
 }

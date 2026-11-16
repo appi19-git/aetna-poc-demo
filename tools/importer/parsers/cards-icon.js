@@ -5,21 +5,39 @@
  * Parser for cards (cards-icon).
  * Source: https://www.trinetaetna.com/home
  * Selector: main section > div.container.flex-wrap:has(> div.bg-gray-100)
- * Output: one row per card -> [icon image cell, body cell (H3 title + Learn more button)].
+ * Output: one row per card -> [icon cell, body cell].
+ * Icon cell: EDS icon token paragraph (e.g. ":stethoscope:") resolved from the inline SVG <title>
+ * (live DOM <svg> or cached data-URI <img>); the SVG itself is not emitted (icons/*.svg exist in the project).
+ * Body cell: H3 card title (source p.title-font) + "Learn more" primary button <p><strong><a>.
  */
 export default function parse(element, { document }) {
-  // Derive alt text from the inline SVG <title> when the img has none
-  function iconAlt(srcImg) {
-    const alt = (srcImg.getAttribute('alt') || '').trim();
-    if (alt) return alt;
-    const src = srcImg.getAttribute('src') || '';
-    const m = src.match(/^data:image\/svg\+xml;base64,(.+)$/);
-    if (m) {
-      try {
-        const svg = atob(m[1]);
-        const t = svg.match(/<title>([^<]+)<\/title>/i);
-        if (t) return t[1].trim();
-      } catch (e) { /* ignore */ }
+  const ICONS = { stethoscope: 'stethoscope', tooth: 'tooth', eye: 'eye' };
+
+  function decodeDataSvg(src) {
+    const m = (src || '').match(/^data:image\/svg\+xml(;base64)?,(.*)$/i);
+    if (!m) return '';
+    try {
+      return m[1] ? atob(m[2]) : decodeURIComponent(m[2]);
+    } catch (e) {
+      return '';
+    }
+  }
+
+  // Icon label from inline <svg><title>, or img alt, or the data-URI SVG <title>
+  function iconLabel(card) {
+    const svg = card.querySelector('svg');
+    if (svg) {
+      const t = svg.querySelector('title');
+      if (t && t.textContent.trim()) return t.textContent.trim();
+      const aria = svg.getAttribute('aria-label');
+      if (aria) return aria.trim();
+    }
+    const img = card.querySelector('img');
+    if (img) {
+      const alt = (img.getAttribute('alt') || '').trim();
+      if (alt) return alt;
+      const t = decodeDataSvg(img.getAttribute('src')).match(/<title>([^<]+)<\/title>/i);
+      if (t) return t[1].trim();
     }
     return '';
   }
@@ -28,28 +46,16 @@ export default function parse(element, { document }) {
   const cells = [];
 
   cards.forEach((card) => {
-    // Image cell: keep the inline SVG data-URI img
-    const imageCell = [];
-    const srcImg = card.querySelector('img');
-    const srcSvg = !srcImg && card.querySelector('svg');
-    if (srcSvg) {
-      // Live DOM renders the icon as inline <svg>; convert to a data-URI img so it survives import
-      const svgClone = srcSvg.cloneNode(true);
-      if (!svgClone.getAttribute('xmlns')) svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-      const titleEl = svgClone.querySelector('title');
-      const markup = svgClone.outerHTML;
-      const img = document.createElement('img');
-      img.src = `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(markup)))}`;
-      img.alt = titleEl ? titleEl.textContent.trim() : '';
-      imageCell.push(img);
-    } else if (srcImg) {
-      const img = document.createElement('img');
-      img.src = srcImg.getAttribute('src');
-      img.alt = iconAlt(srcImg);
-      imageCell.push(img);
+    // Icon cell: icon token text
+    const iconName = ICONS[iconLabel(card).toLowerCase()];
+    let iconCell = '';
+    if (iconName) {
+      const p = document.createElement('p');
+      p.textContent = `:${iconName}:`;
+      iconCell = [p];
     }
 
-    // Body cell: H3 title (source p.title-font) + Learn more button
+    // Body cell: H3 title + Learn more button
     const bodyCell = [];
     const title = card.querySelector('.title-font, h2, h3, h4');
     if (title && title.textContent.trim()) {
@@ -58,28 +64,18 @@ export default function parse(element, { document }) {
       bodyCell.push(h3);
     }
 
-    const rich = card.querySelector('.rich-text-markdown');
-    if (rich) {
-      rich.querySelectorAll(':scope > p').forEach((srcP) => {
-        if (!srcP.textContent.trim() || srcP.querySelector('a')) return;
-        const p = document.createElement('p');
-        p.textContent = srcP.textContent.trim();
-        bodyCell.push(p);
-      });
-    }
-
     card.querySelectorAll('a[href]').forEach((srcA) => {
       const p = document.createElement('p');
       const strong = document.createElement('strong');
       const a = document.createElement('a');
-      a.href = srcA.getAttribute('href');
+      a.setAttribute('href', srcA.getAttribute('href'));
       a.textContent = srcA.textContent.trim();
       strong.append(a);
       p.append(strong);
       bodyCell.push(p);
     });
 
-    cells.push([imageCell.length ? imageCell : '', bodyCell]);
+    cells.push([iconCell, bodyCell]);
   });
 
   const block = WebImporter.Blocks.createBlock(document, { name: 'Cards (cards-icon)', cells });

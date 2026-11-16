@@ -248,3 +248,67 @@
     padding-left: var(--gap-2xl);
   }
 }
+
+/* ===== TriNet Aetna (body.trinet) — columns-divider ===== */
+body.trinet .columns.columns-divider {
+  padding: 0 40px;
+}
+
+body.trinet .columns.columns-divider h2 {
+  margin: 0 0 16px;
+  color: #7d3f98;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+body.trinet .columns.columns-divider p {
+  margin: 0 0 16px;
+}
+
+body.trinet .columns.columns-divider ul {
+  margin: 0 0 16px;
+  padding-left: 40px;
+}
+
+body.trinet .columns.columns-divider li {
+  margin-top: 8px;
+}
+
+body.trinet .columns.columns-divider li > p {
+  margin: 0;
+}
+
+body.trinet .columns.columns-divider li > ul {
+  margin: 0 0 8px;
+}
+
+body.trinet .columns.columns-divider .button-wrapper {
+  margin: 0 0 20px;
+}
+
+body.trinet .columns.columns-divider > div > div > :last-child {
+  margin-bottom: 0;
+}
+
+/* source places the two columns side by side from 900px */
+@media (width >= 900px) {
+  body.trinet .columns.columns-divider > div {
+    display: grid;
+    grid-template-columns: minmax(0, 560px) minmax(0, 560px);
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+  }
+
+  body.trinet .columns.columns-divider > div > div {
+    order: unset;
+    padding-right: 60px;
+  }
+
+  body.trinet .columns.columns-divider .columns-text-col + .columns-text-col {
+    padding-right: 0;
+    padding-left: 60px;
+    border-left: 1px solid #000;
+  }
+}

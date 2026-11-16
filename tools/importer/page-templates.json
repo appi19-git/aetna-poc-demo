@@ -4,13 +4,95 @@
   },
   "templates": [
     {
-      "name": "home",
+      "name": "florida-home",
+      "urls": [
+        "https://www.aetnastateflorida.com/"
+      ],
+      "representativeUrl": "https://www.aetnastateflorida.com/",
+      "description": "Aetna State of Florida homepage: masthead photo carousel, three icon links, centered welcome/temporary ID card text, purple phone callout",
+      "urlPattern": "/",
+      "blocks": [
+        {
+          "name": "carousel-hero",
+          "instances": [
+            "div.masthead-container > section.masthead"
+          ]
+        },
+        {
+          "name": "cards-icon-centered",
+          "instances": [
+            "div.homepage-threeiconlinks"
+          ]
+        },
+        {
+          "name": "hero-callout",
+          "instances": [
+            "div.textbar-callout-purple"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Masthead carousel",
+          "selector": [
+            "div.masthead-container"
+          ],
+          "style": null,
+          "blocks": [
+            "carousel-hero"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Three icon links",
+          "selector": [
+            "section:has(div.homepage-threeiconlinks)"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icon-centered"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Welcome and temporary ID card",
+          "selector": [
+            "section:has(div.content-panel)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            "div.content-panel h3.bigtext-one",
+            "div.content-panel p.text-section-p-big",
+            "div.content-panel h3.text-section-h3:not(.bigtext-one)",
+            "div.content-panel p.text-section-p",
+            "div.content-panel center > a.button"
+          ]
+        },
+        {
+          "id": "section-4",
+          "name": "Phone callout",
+          "selector": [
+            "div.textbar-callout-purple"
+          ],
+          "style": "purple",
+          "blocks": [
+            "hero-callout"
+          ],
+          "defaultContent": []
+        }
+      ]
+    },
+    {
+      "name": "trinet-home",
       "urls": [
         "https://www.trinetaetna.com/home"
       ],
       "representativeUrl": "https://www.trinetaetna.com/home",
-      "description": "TriNet Aetna homepage: welcome banner, hero with overlapping text card, two-column member info, benefit icon cards",
-      "urlPattern": "/*",
+      "description": "TriNet Aetna homepage: purple welcome band, hero photo with overlapping text card, two-column member info with divider, benefit icon cards",
       "blocks": [
         {
           "name": "hero-card",
@@ -31,14 +113,15 @@
           ]
         }
       ],
+      "urlPattern": "/home",
       "sections": [
         {
           "id": "rc1",
-          "name": "Welcome banner",
+          "name": "Welcome band",
           "selector": [
             "main > div:has(> section.bg-aetna_primary-600)"
           ],
-          "style": "purple, center",
+          "style": "purple, centered",
           "blocks": [],
           "defaultContent": [
             "section.bg-aetna_primary-600 div.text-center > p"
@@ -58,11 +141,11 @@
         },
         {
           "id": "rc3",
-          "name": "Member website / Already a member",
+          "name": "Member website and TriNet contact",
           "selector": [
             "main > div:has(> section.bg-aetna_gray-50 > div.container.md\\:flex-row)"
           ],
-          "style": "light-grey",
+          "style": "light",
           "blocks": [
             "columns-divider"
           ],
@@ -74,7 +157,7 @@
           "selector": [
             "main > div:has(> section.bg-white)"
           ],
-          "style": null,
+          "style": "centered",
           "blocks": [
             "cards-icon"
           ],

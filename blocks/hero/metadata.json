@@ -5,8 +5,18 @@
   "visualCharacteristics": "Base: full-bleed photo with bottom-to-top gradient overlay and white text directly on the image. Option article: blog article header with breadcrumbs, tag line, em tag pills and author avatar. Option hero-card: full-width photo with a white rounded, shadowed text card (H1, subheading, paragraph) overlapping the photo's bottom-right corner and overhanging below it; the card stacks under the image on mobile.",
   "contentPattern": "Two rows: row 1 is a single image cell; row 2 is a content cell with an H1, optional eyebrow/subheading, body paragraph(s) and optional CTA links. Block JS moves the picture (or wraps a bare img in a picture) and the content cell to the top level.",
   "options": [
-    { "class": "article", "label": "Article" },
-    { "class": "hero-card", "label": "Hero card" }
+    {
+      "class": "article",
+      "label": "Article"
+    },
+    {
+      "class": "hero-card",
+      "label": "Hero card"
+    },
+    {
+      "class": "hero-callout",
+      "label": "Hero callout"
+    }
   ],
   "memberVariantIds": [],
   "usage": "Page-opening hero. Use the base for full-bleed overlay heroes, article for blog article headers, and hero-card when the text should sit on a separate white card overlapping the photo.",
