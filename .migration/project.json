@@ -1,0 +1,9 @@
+{
+  "sites": {
+    "aetna-poc-demo": {
+      "previewOrg": "appi19-git",
+      "previewSite": "aetna-poc-demo",
+      "contentHostUrl": "https://content.da.live/appi19-git/aetna-poc-demo/"
+    }
+  }
+}
