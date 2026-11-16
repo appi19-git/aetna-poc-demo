@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity -- consolidated variant file */
 
-/* Hero block — base (full-bleed overlay) + variants (article, hero-card) */
+/* Hero block — base (full-bleed overlay) + variants (article, hero-card, hero-callout) */
 
 /* Shared: full-bleed container — no section padding on hero */
 main > .hero-container {
@@ -292,13 +292,18 @@ main .hero a.button.secondary:any-link:hover {
   }
 }
 
-/* ===== Hero Card variant (photo + white text card overlapping bottom-right) ===== */
+/* ===== Hero Card variant (full-bleed photo + white text card overlapping bottom-right) ===== */
 .hero.hero-card {
+  --hero-card-bg: #f5f5f5;
+  --hero-card-container: 100%;
+  --hero-card-width: 500px;
+
   display: grid;
   grid-template-columns: 1fr;
   min-height: unset;
-  padding: 0;
+  padding: 0 0 5%;
   overflow: visible;
+  background-color: var(--hero-card-bg);
   color: var(--text-color);
 }
 
@@ -307,27 +312,38 @@ main .hero a.button.secondary:any-link:hover {
   content: none;
 }
 
-.hero.hero-card picture {
+.hero.hero-card > picture {
   position: relative;
   inset: auto;
   display: block;
+  grid-row: 1;
   line-height: 0;
 }
 
-.hero.hero-card img {
-  aspect-ratio: 16 / 9;
-  height: auto;
+.hero.hero-card > picture img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: 80% 35%;
 }
 
-/* text card — stacked under the image on mobile */
-.hero.hero-card > div {
+/* text card — overlaps the photo bottom on mobile, stacked under it */
+.hero.hero-card > .hero-content {
+  position: relative;
+  z-index: 1;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  grid-row: 2;
+  width: 90%;
   max-width: none;
-  margin: 0;
-  padding: var(--gap-lg);
-  background-color: var(--background-color);
-  border-radius: var(--card-border-radius);
-  box-shadow: var(--card-hover-shadow);
+  margin: -15% auto 0;
+  padding: 40px;
+  border-radius: 24px;
+  background-color: #fff;
+  filter: drop-shadow(2px -12px 10px rgb(0 0 0 / 25%));
+  text-align: left;
 }
 
 .hero.hero-card h1,
@@ -336,56 +352,168 @@ main .hero a.button.secondary:any-link:hover {
 .hero.hero-card h4,
 .hero.hero-card h5,
 .hero.hero-card h6 {
-  color: var(--text-color);
+  margin: 0;
+  max-width: none;
+  color: #7d3f98;
+  font-family: inherit;
+  font-weight: 400;
   text-shadow: none;
-  margin: 0 0 var(--gap-md);
 }
 
 .hero.hero-card h1 {
-  max-width: none;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.hero.hero-card h2,
+.hero.hero-card h3 {
+  font-size: 24px;
+  line-height: 30px;
 }
 
 .hero.hero-card p:not(.tag-pill),
-.hero.hero-card > div > h1 + p {
-  color: var(--text-color);
-  font-size: var(--body-font-size-m);
+.hero.hero-card .hero-content > h1 + p {
+  margin: 0;
   max-width: none;
+  color: #000;
+  font-size: 16px;
+  line-height: 24px;
   text-shadow: none;
-  margin: 0 0 var(--gap-md);
 }
 
-.hero.hero-card > div > :last-child {
-  margin-bottom: 0;
+/* photo spans rows 1-2; the card sits in rows 2-3 so it overhangs the photo bottom by 37px,
+   right-aligned 16px inside the source content column (600 / 900 / 1200px) */
+@media (width >= 600px) {
+  .hero.hero-card {
+    --hero-card-container: 600px;
+
+    grid-template-columns:
+      1fr minmax(0, var(--hero-card-width))
+      calc((100% - min(100%, var(--hero-card-container))) / 2 + 16px);
+    grid-template-rows: 1fr auto 37px;
+    padding-bottom: 8px;
+  }
+
+  .hero.hero-card > picture {
+    grid-column: 1 / -1;
+    grid-row: 1 / 3;
+  }
+
+  .hero.hero-card > picture img {
+    height: 720px;
+  }
+
+  .hero.hero-card > .hero-content {
+    grid-column: 2;
+    grid-row: 2 / 4;
+    width: auto;
+    margin: 0;
+  }
 }
 
 @media (width >= 900px) {
-  /* image spans rows 1-2, card spans rows 2-3 so it overhangs the image bottom */
   .hero.hero-card {
-    grid-template-columns: 1fr minmax(0, 600px) var(--gap-3xl);
-    grid-template-rows: 1fr auto var(--gap-xl);
-    min-height: unset;
-    padding: 0;
+    --hero-card-container: 900px;
   }
+}
 
-  .hero.hero-card picture {
-    grid-column: 1 / -1;
-    grid-row: 1 / 3;
-    height: 100%;
+@media (width >= 1200px) {
+  .hero.hero-card {
+    --hero-card-container: 1200px;
+    --hero-card-width: 600px;
   }
+}
 
-  .hero.hero-card img {
-    aspect-ratio: auto;
-    height: 100%;
-    min-height: 480px;
-  }
+/* ===== Hero Callout variant (inline icon above centered text, on the section color) ===== */
+.hero.hero-callout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 0 24px;
+  overflow: visible;
+  color: inherit;
+  text-align: center;
+}
 
-  .hero.hero-card > div {
-    grid-column: 2;
-    grid-row: 2 / 4;
-    padding: var(--gap-xl) var(--gap-xl) var(--gap-xl);
-  }
+.hero.hero-callout::after {
+  content: none;
+}
 
-  .hero.hero-card p:not(.tag-pill) {
-    font-size: var(--body-font-size-m);
-  }
+.hero.hero-callout > div {
+  position: static;
+  max-width: 900px;
+  text-align: center;
+}
+
+.hero.hero-callout .hero-callout-icon {
+  margin-bottom: 16px;
+  line-height: 0;
+}
+
+.hero.hero-callout .hero-callout-icon picture {
+  position: static;
+  display: inline-block;
+}
+
+.hero.hero-callout .hero-callout-icon img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.hero.hero-callout h1,
+.hero.hero-callout h2,
+.hero.hero-callout h3 {
+  margin: 0 0 8px;
+  color: inherit;
+  text-wrap: balance;
+}
+
+.hero.hero-callout p {
+  margin: 0;
+  color: inherit;
+}
+
+/* ===== Aetna State of Florida (body.florida) — hero-callout ===== */
+body.florida .hero.hero-callout .hero-callout-icon {
+  margin-bottom: 18px;
+}
+
+body.florida .hero.hero-callout .hero-callout-icon img {
+  width: 75px;
+  height: 75px;
+}
+
+body.florida .hero.hero-callout h3 {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 37.8px;
+}
+
+body.florida .hero.hero-callout h3 strong {
+  font-weight: 600;
+}
+
+body.florida .hero.hero-callout p {
+  margin: 0 0 7.5px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 27px;
+  line-height: 37.8px;
+}
+
+body.florida .hero.hero-callout {
+  padding: 0;
+}
+
+body.florida .hero.hero-callout .hero-callout-content {
+  max-width: none;
+  text-align: center;
+}
+
+body.florida .hero.hero-callout .hero-callout-content * {
+  text-shadow: none;
 }

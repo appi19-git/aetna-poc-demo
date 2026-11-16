@@ -38,6 +38,42 @@
 
   /* nav height */
   --nav-height: 64px;
+
+  /* shared design tokens used by the blocks */
+  --accent-color: #7d3f98;
+  --border-color: #dadada;
+  --border-color-light: #e5e7eb;
+  --text-color-muted: #6b7280;
+  --text-on-dark: #fff;
+  --text-on-dark-muted: rgb(255 255 255 / 80%);
+  --cream-color: #faf7f2;
+  --glass-bg: rgb(255 255 255 / 10%);
+  --glass-border: rgb(255 255 255 / 20%);
+  --gap-xs: 4px;
+  --gap-sm: 8px;
+  --gap-md: 16px;
+  --gap-lg: 24px;
+  --gap-xl: 32px;
+  --gap-2xl: 48px;
+  --gap-3xl: 64px;
+  --container-max-width: 1200px;
+  --container-narrow-max-width: 900px;
+  --card-border-radius: 15px;
+  --card-hover-shadow: 0 10px 8px rgb(0 0 0 / 4%), 0 4px 3px rgb(0 0 0 / 10%);
+  --card-hover-transition: box-shadow 0.2s ease, transform 0.2s ease;
+  --button-border-radius: 8px;
+  --button-font-family: inherit;
+  --button-font-size: inherit;
+  --button-font-weight: 600;
+  --button-letter-spacing: normal;
+  --button-padding: 8px 16px;
+  --button-transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  --tag-font-size: 14px;
+  --tag-letter-spacing: 0.02em;
+  --text-link-letter-spacing: normal;
+  --text-link-underline-offset: 3px;
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
 }
 
 /* fallback fonts */
@@ -327,7 +363,6 @@ main .section.highlight {
 /* purple brand band (e.g. "Got a Question?" phone callout) */
 main .section.purple {
   background-color: #7d3f98;
-  border-bottom: 10px solid #5d2f71;
   color: #fff;
   margin: 0;
   padding: 48px 0;
@@ -347,8 +382,228 @@ main .section.centered .default-content-wrapper {
   text-align: center;
 }
 
-main .section.centered .default-content-wrapper h3 + p + h3 {
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid #d8d8d8;
+/* ===== TriNet Aetna page styles (body.trinet) ===== */
+/* stylelint-disable no-descending-specificity -- site theme layered over shared rules */
+body.trinet main {
+  font-family: CVS, ui-sans-serif, system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #1f2937;
+}
+
+body.trinet main h1,
+body.trinet main h2,
+body.trinet main h3,
+body.trinet main h4 {
+  font-family: inherit;
+}
+
+body.trinet main p,
+body.trinet main li {
+  color: #000;
+}
+
+body.trinet main a:any-link {
+  color: #7d3f98;
+  font-weight: 700;
+}
+
+body.trinet main a.button:any-link {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background-color: #7d3f98;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+body.trinet main a.button:any-link:hover,
+body.trinet main a.button:any-link:focus-visible {
+  background-color: #5d2f71;
+  color: #fff;
+}
+
+body.trinet main > .section {
+  margin: 0;
+}
+
+body.trinet main > .section > div {
+  max-width: none;
+  padding: 0;
+}
+
+/* purple welcome band */
+body.trinet main .section.purple {
+  padding: 16px 0;
+}
+
+body.trinet main .section.purple .default-content-wrapper {
+  padding: 0 8px;
+}
+
+body.trinet main .section.purple p {
+  margin: 0;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 900;
+  color: #fff;
+}
+
+body.trinet main .section.purple strong {
+  font-weight: 900;
+}
+
+/* light grey band (member info) */
+body.trinet main .section.light {
+  background-color: #f5f5f5;
+  padding: 48px 0;
+}
+
+/* centered title section (benefits and coverage) */
+body.trinet main .section.centered:not(.purple) {
+  padding: 48px 0;
+}
+
+body.trinet main .section.centered .default-content-wrapper {
+  max-width: none;
+}
+
+body.trinet main .section.centered h2 {
+  margin: 0 0 24px;
+  color: #7d3f98;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 48px;
+}
+
+/* source container widths: full / 600 / 900 / 1200 */
+@media (width >= 600px) {
+  body.trinet main > .section > div {
+    max-width: 600px;
+  }
+}
+
+@media (width >= 900px) {
+  body.trinet main > .section > div {
+    max-width: 900px;
+  }
+
+  body.trinet main .section.purple p {
+    font-size: 28px;
+    line-height: 42px;
+  }
+}
+
+@media (width >= 1200px) {
+  body.trinet main > .section > div {
+    max-width: 1200px;
+  }
+
+  body.trinet main .section.purple .default-content-wrapper {
+    padding: 0 16px;
+  }
+
+  body.trinet main .section.purple p {
+    font-size: 32px;
+    line-height: 48px;
+  }
+}
+
+/* ===== Aetna State of Florida page styles (body.florida) ===== */
+body.florida main {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #0a0a0a;
+}
+
+body.florida main h1,
+body.florida main h2,
+body.florida main h3,
+body.florida main h4 {
+  /* source stack minus Roboto: this site loads a Roboto web font the source does not */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body.florida main > .section {
+  margin: 0;
+}
+
+body.florida main > .section > div {
+  max-width: 1125px;
+}
+
+/* purple PDF / call-to-action button */
+body.florida main a.button:any-link {
+  border: 1px solid transparent;
+  border-radius: 8.1px;
+  padding: 13.5px 27px;
+  background-color: #7d3f98;
+  color: #fefefe;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 13.5px;
+}
+
+body.florida main a.button:any-link:hover,
+body.florida main a.button:any-link:focus-visible {
+  background-color: #5d2f71;
+  color: #fefefe;
+}
+
+/* centered welcome / temporary ID card text */
+body.florida main .section.centered {
+  padding: 22px 0 15px;
+}
+
+body.florida main .section.centered .default-content-wrapper {
+  max-width: 816px;
+  padding: 0 18.75px;
+  color: #454545;
+}
+
+body.florida main .section.centered h3 {
+  margin: 0 0 11.25px;
+  color: #454545;
+  font-size: 22.5px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+body.florida main .section.centered p {
+  margin: 0 0 15px;
+  color: #454545;
+  font-size: 15px;
+  line-height: 24px;
+}
+
+body.florida main .section.centered h3:first-child + p {
+  font-size: 16.5px;
+  line-height: 26.4px;
+}
+
+body.florida main .section.centered .default-content-wrapper h3 + p + h3 {
+  margin: 54px 0 7.5px;
+  padding-top: 18px;
+  border-top: 1px solid #aeaeae;
+  font-size: 18px;
+  line-height: 25.2px;
+}
+
+body.florida main .section.centered .button-wrapper {
+  margin: 0;
+}
+
+/* purple phone callout band */
+body.florida main .section.purple {
+  margin-top: 54px;
+  padding: 90px 0;
+  border-bottom: 20px solid #5d2f71;
+}
+
+/* the hero photo runs edge to edge at every width */
+body.trinet main > .section.hero-container > div {
+  max-width: none;
 }

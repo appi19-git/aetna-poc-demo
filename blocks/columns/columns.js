@@ -13,6 +13,10 @@ export default function decorate(block) {
           picWrapper.classList.add('columns-img-col');
         }
       }
+      // text columns (used by e.g. columns-divider for the rule between them)
+      if (!col.classList.contains('columns-img-col') && col.textContent.trim()) {
+        col.classList.add('columns-text-col');
+      }
     });
   });
 }

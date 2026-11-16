@@ -298,3 +298,75 @@ main > .section > div:has(> .carousel.carousel-hero) {
     padding: 48px 96px;
   }
 }
+
+/* ===== Aetna State of Florida (body.florida) — carousel-hero ===== */
+body.florida main > .section:has(> div > .carousel.carousel-hero) {
+  border-bottom: 10px solid #7d3f98;
+  background-color: #2a2a2a;
+}
+
+body.florida .carousel.carousel-hero .carousel-slide {
+  min-height: 400px;
+}
+
+body.florida .carousel.carousel-hero .carousel-slide-content {
+  padding: 0 16px;
+  text-shadow: 0 0 25px rgb(0 0 0 / 30%);
+}
+
+body.florida .carousel.carousel-hero .carousel-slide-content > :first-child {
+  font-family: DomaineDisplayWeb-Bold, sans-serif;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+body.florida .carousel.carousel-hero .carousel-slide-content > * + * {
+  margin-top: 8px;
+  padding: 0 1.5em;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 22.5px;
+  font-weight: 600;
+  line-height: 31.5px;
+}
+
+/* dots: purple, active white (like the source slick theme) */
+body.florida .carousel.carousel-hero .carousel-slide-indicator button {
+  width: 20px;
+  height: 20px;
+  color: #7d3f98;
+}
+
+body.florida .carousel.carousel-hero .carousel-slide-indicator button::before {
+  inset: 5px;
+  opacity: 1;
+}
+
+body.florida .carousel.carousel-hero .carousel-slide-indicator button[aria-current='true'],
+body.florida .carousel.carousel-hero .carousel-slide-indicator button:hover {
+  color: #fff;
+}
+
+body.florida .carousel.carousel-hero .carousel-pause {
+  opacity: 0.7;
+}
+
+body.florida .carousel.carousel-hero .carousel-pause:hover,
+body.florida .carousel.carousel-hero .carousel-pause:focus-visible {
+  opacity: 1;
+}
+
+body.florida .carousel.carousel-hero .carousel-navigation-buttons button {
+  opacity: 0.7;
+}
+
+/* breakpoint-exception: source carousel grows at 701px */
+@media (width >= 701px) {
+  body.florida .carousel.carousel-hero .carousel-slide {
+    min-height: 500px;
+  }
+
+  body.florida .carousel.carousel-hero .carousel-slide-content > :first-child {
+    font-size: 75px;
+  }
+}

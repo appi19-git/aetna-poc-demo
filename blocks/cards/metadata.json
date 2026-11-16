@@ -5,9 +5,22 @@
   "visualCharacteristics": "Base: auto-fill grid of bordered cards with a 4:3 image above the body; the whole card is wrapped in its first link. Option cards-article: rounded article cards with 16:10 image, tag pill and Read More link. Option cards-feature: text-only glass cards for dark sections. Option cards-icon: light-grey rounded, shadowed tiles with a small ~56px icon, an h3 title and a Learn more button aligned to the tile bottom; the button stays a real link (no full-card wrapper).",
   "contentPattern": "One row per card: an image cell (picture or img in p) and a body cell (optional tag, heading, text, link). JS converts rows to ul/li with cards-card-image and cards-card-body.",
   "options": [
-    { "class": "cards-article", "label": "Cards article" },
-    { "class": "cards-feature", "label": "Cards feature" },
-    { "class": "cards-icon", "label": "Cards icon" }
+    {
+      "class": "cards-article",
+      "label": "Cards article"
+    },
+    {
+      "class": "cards-feature",
+      "label": "Cards feature"
+    },
+    {
+      "class": "cards-icon",
+      "label": "Cards icon"
+    },
+    {
+      "class": "cards-icon-centered",
+      "label": "Cards icon centered"
+    }
   ],
   "memberVariantIds": [],
   "usage": "Grids of repeating teasers. Use cards-icon for benefit/service tiles with an icon, a title and a Learn more button.",
