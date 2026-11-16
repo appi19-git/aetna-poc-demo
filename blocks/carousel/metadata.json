@@ -1,0 +1,16 @@
+{
+  "variantName": "carousel",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": "Base: cross-fading slides, each with an optional cover image behind a content panel, prev/next arrows, dot indicators and a pause/play control; auto-rotates every 6s, pauses on hover, focus, off-screen, hidden tab and prefers-reduced-motion. Option carousel-hero: full-bleed photo slides with a centered white title + subtitle overlay, arrows at mid-height and the dots + pause control overlaid at the bottom of the photo.",
+  "contentPattern": "One row per slide: an image cell (picture only) and a text cell (title heading such as H1/H2 plus a subtitle heading or paragraph). Cells are detected by content, so a missing image or a swapped cell order still renders; empty rows are ignored. Arrows, dots and pause are created by the block JS, not authored.",
+  "options": [
+    {
+      "class": "carousel-hero",
+      "label": "Carousel hero"
+    }
+  ],
+  "memberVariantIds": [],
+  "usage": "Rotating promotional banners. Use carousel-hero for the page-opening full-bleed photo slider with centered overlay text.",
+  "reuseGuidance": "Keep the image cell + text cell per row model. Only the first slide's heading should be an H1. Keyboard: arrow keys, Home and End move between slides while focus is inside the carousel."
+}
