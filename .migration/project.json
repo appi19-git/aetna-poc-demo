@@ -5,7 +5,7 @@
       "previewOrg": "appi19-git",
       "previewSite": "aetna-poc-demo",
       "contentHostUrl": "https://content.da.live/appi19-git/aetna-poc-demo/",
-      "libraryUrl": "https://main--sta-boilerplate--aemdemos.aem.page/tools/sidekick/library.json"
+      "libraryUrl": "https://main--aetna-poc-demo--appi19-git.aem.page/tools/sidekick/library.json"
     }
   }
 }
