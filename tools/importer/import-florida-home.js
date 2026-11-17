@@ -95,6 +95,9 @@ const PAGE_TEMPLATE = {
   ]
 };
 
+// Aetna State of Florida pages use the florida theme and the default /nav and /footer pages.
+const SITE_METADATA = { Theme: 'florida', Nav: '/nav', Footer: '/footer' };
+
 const parsers = {
   'carousel-hero': carouselHeroParser,
   'cards-icon-centered': cardsIconCenteredParser,
@@ -186,7 +189,9 @@ export default {
     executeTransformers('afterTransform', main, payload);
 
     main.appendChild(document.createElement('hr'));
-    WebImporter.rules.createMetadata(main, document);
+    // page metadata + this site's theme and its own header/footer pages
+    const meta = { ...WebImporter.Blocks.getMetadata(document), ...SITE_METADATA };
+    main.append(WebImporter.Blocks.getMetadataBlock(document, meta));
     WebImporter.rules.transformBackgroundImages(main, document);
     WebImporter.rules.adjustImageUrls(main, url, params.originalURL);
 

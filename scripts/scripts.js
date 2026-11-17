@@ -170,11 +170,30 @@ function decorateSectionMetadata(main) {
 }
 
 /**
+ * Turns authored icon tokens (an element whose only text is ":icon-name:") into
+ * <span class="icon icon-icon-name"> so decorateIcons can load /icons/icon-name.svg.
+ * Edge Delivery already does this for published pages; this covers local/plain HTML.
+ * @param {Element} main The main element
+ */
+function decorateIconTokens(main) {
+  main.querySelectorAll('div, p, li').forEach((el) => {
+    if (el.children.length) return;
+    const match = el.textContent.trim().match(/^:([a-z0-9-]+):$/);
+    if (!match) return;
+    const span = document.createElement('span');
+    span.className = `icon icon-${match[1]}`;
+    el.textContent = '';
+    el.append(span);
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  decorateIconTokens(main);
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);

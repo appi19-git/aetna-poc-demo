@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity -- consolidated variant file */
 
-/* Cards block — base + variants (cards-article, cards-feature, cards-icon) */
+/* Cards block — base + variants (cards-article, cards-feature, cards-icon, cards-icon-centered) */
 
 /* ===== Base cards ===== */
 .cards > ul {
@@ -293,4 +293,194 @@
   .cards.cards-icon > ul {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* ===== Cards Icon Centered variant (flat, centered: large icon, linked title, text) ===== */
+.cards.cards-icon-centered > ul {
+  grid-template-columns: 1fr;
+  gap: var(--gap-lg, 32px);
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+.cards.cards-icon-centered > ul > li {
+  border: 0;
+  background: transparent;
+  text-align: center;
+}
+
+/* whole item is the link (built by base JS from the title link) */
+.cards.cards-icon-centered .cards-card-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.cards.cards-icon-centered .cards-card-link:focus-visible {
+  outline: 2px solid currentcolor;
+  outline-offset: 4px;
+}
+
+.cards.cards-icon-centered .cards-card-image {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto var(--gap-sm, 16px);
+}
+
+.cards.cards-icon-centered .cards-card-image p {
+  margin: 0;
+}
+
+.cards.cards-icon-centered > ul > li img {
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1;
+  object-fit: contain;
+}
+
+.cards.cards-icon-centered .cards-card-body {
+  margin: 0;
+}
+
+.cards.cards-icon-centered .cards-card-body h3 {
+  margin: 0 0 8px;
+  text-decoration: underline;
+}
+
+.cards.cards-icon-centered .cards-card-body p {
+  margin: 0;
+}
+
+@media (width >= 768px) {
+  .cards.cards-icon-centered > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ===== TriNet Aetna (body.trinet) — cards-icon tiles ===== */
+body.trinet .cards.cards-icon {
+  padding: 0 8px;
+}
+
+/* source: wrapping row of tiles, each up to 576px, grown to fill the row */
+body.trinet .cards.cards-icon > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+body.trinet .cards.cards-icon > ul > li {
+  flex: 1 1 250px;
+  align-items: center;
+  max-width: 576px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: 15px;
+  background-color: #f3f4f6;
+  box-shadow: none;
+  filter: drop-shadow(0 10px 8px rgb(0 0 0 / 4%)) drop-shadow(0 4px 3px rgb(0 0 0 / 10%));
+  text-align: center;
+}
+
+body.trinet .cards.cards-icon .cards-card-image {
+  margin-bottom: 24px;
+}
+
+body.trinet .cards.cards-icon .cards-card-body {
+  align-items: center;
+}
+
+body.trinet .cards.cards-icon .cards-card-body h3 {
+  margin: 0 0 24px;
+  color: #09090b;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 42px;
+}
+
+body.trinet .cards.cards-icon .cards-card-body .button-wrapper {
+  margin: 0;
+  padding: 4px 0;
+}
+
+@media (width >= 900px) {
+  body.trinet .cards.cards-icon {
+    padding: 0 16px;
+  }
+}
+
+/* source tiles align left from 1200px */
+@media (width >= 1200px) {
+  body.trinet .cards.cards-icon > ul > li {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  body.trinet .cards.cards-icon .cards-card-body {
+    align-items: flex-start;
+  }
+}
+
+body.trinet .cards.cards-icon .cards-card-image .icon,
+body.trinet .cards.cards-icon .cards-card-image .icon img {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+/* ===== Aetna State of Florida (body.florida) — cards-icon-centered ===== */
+body.florida .cards.cards-icon-centered {
+  padding-top: 37.5px;
+}
+
+body.florida .cards.cards-icon-centered > ul {
+  gap: 0;
+  max-width: 843px;
+  padding: 0 16px;
+}
+
+@media (width >= 640px) {
+  /* breakpoint-exception: source (Foundation "medium") shows 3 columns from 640px */
+  body.florida .cards.cards-icon-centered > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: 0;
+  }
+}
+
+body.florida .cards.cards-icon-centered > ul > li {
+  padding: 0 14.0625px;
+}
+
+body.florida .cards.cards-icon-centered .cards-card-link {
+  box-sizing: border-box;
+  padding: 22.5px 15px;
+  color: #7d3f98;
+  font-weight: 700;
+}
+
+body.florida .cards.cards-icon-centered .cards-card-image,
+body.florida .cards.cards-icon-centered > ul > li img {
+  width: 120px;
+  height: 128px;
+}
+
+body.florida .cards.cards-icon-centered .cards-card-image {
+  margin: 0 auto;
+}
+
+body.florida .cards.cards-icon-centered .cards-card-body h3 {
+  margin: 0 0 7.5px;
+  color: #7d3f98;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+body.florida .cards.cards-icon-centered .cards-card-body p {
+  color: #000;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 18px;
 }

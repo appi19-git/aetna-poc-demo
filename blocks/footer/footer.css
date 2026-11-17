@@ -1,3 +1,10 @@
+/* stylelint-disable no-descending-specificity -- consolidated multi-site file */
+
+/*
+ * Footer — shared structure + per-site themes (body.florida, body.trinet).
+ */
+
+/* ===== Base (all sites) ===== */
 footer {
   background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
@@ -13,8 +20,170 @@ footer .footer p {
   margin: 0;
 }
 
+footer .footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px 24px;
+  }
+}
+
+/* ===== Aetna State of Florida (body.florida) ===== */
+body.florida footer {
+  margin-top: 60px;
+  padding-top: 30px;
+  background-color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  color: #474747;
+}
+
+body.florida footer .footer > div {
+  box-sizing: border-box;
+  max-width: 1125px;
+  padding: 0 9.375px;
+}
+
+body.florida footer .footer .section > div {
+  padding: 0;
+}
+
+body.florida footer .footer a:any-link {
+  color: #0a79a2;
+  text-decoration: none;
+}
+
+body.florida footer .footer a:hover,
+body.florida footer .footer a:focus-visible {
+  text-decoration: underline;
+}
+
+body.florida footer .footer-brand {
+  padding-bottom: 18.75px;
+  border-bottom: 1px solid #cacaca;
+  margin-bottom: 18.75px;
+  line-height: 0;
+}
+
+body.florida footer .footer-brand img {
+  width: 150px;
+  height: 30px;
+}
+
+body.florida footer .footer-links .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+body.florida footer .footer-links ul {
+  margin-bottom: 7px;
+  padding-bottom: 8px;
+}
+
+body.florida footer .footer-social {
+  display: flex;
+  gap: 2px;
+}
+
+body.florida footer .footer-social a {
+  margin: 10px 0 1px;
+  line-height: 0;
+}
+
+body.florida footer .footer-social img {
+  width: 38px;
+  height: 38px;
+}
+
+/* language assistance line */
+body.florida footer .footer-section-3 p {
+  margin: 15px 0;
+}
+
+body.florida footer .footer-section-3 img {
+  width: 16px;
+  height: 16px;
+  vertical-align: -2px;
+}
+
+body.florida footer .footer-copyright {
+  padding-top: 18.75px;
+  border-top: 1px solid #cacaca;
+  margin-top: 30px;
+}
+
+body.florida footer .footer-copyright p {
+  margin-bottom: 15px;
+}
+
+@media (width >= 640px) {
+  /* breakpoint-exception: source site (Foundation "medium") uses 4 equal columns from 640px */
+  body.florida footer .footer > div {
+    padding: 0 15px;
+  }
+
+  body.florida footer .footer-links .default-content-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 30px;
+  }
+
+  body.florida footer .footer-links ul {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+/* ===== TriNet Aetna (body.trinet) ===== */
+body.trinet footer {
+  background-color: #7d3f98;
+  font-family: CVS, ui-sans-serif, system-ui, sans-serif;
+  font-size: 14.4px;
+  line-height: 21.6px;
+  color: #fff;
+}
+
+body.trinet footer .footer > div {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: none;
+  padding: 96px 16px 64px;
+}
+
+body.trinet footer .footer .section > div {
+  padding: 0;
+}
+
+body.trinet footer .footer a:any-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+body.trinet footer .footer a:hover {
+  text-decoration: none;
+}
+
+@media (width >= 600px) {
+  body.trinet footer .footer > div {
+    max-width: 600px;
+  }
+}
+
+@media (width >= 900px) {
+  body.trinet footer .footer > div {
+    max-width: 900px;
+  }
+}
+
+@media (width >= 1200px) {
+  body.trinet footer .footer > div {
+    max-width: 1200px;
+    padding: 96px 32px 64px;
   }
 }

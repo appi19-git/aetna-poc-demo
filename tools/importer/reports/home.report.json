@@ -2,13 +2,13 @@
   "status": "success",
   "url": "https://www.trinetaetna.com/home",
   "path": "home",
-  "timestamp": "2026-11-12T18:01:05.071Z",
+  "timestamp": "2026-11-16T10:55:30.761Z",
   "title": "Trinet | Home",
-  "template": "home",
+  "template": "trinet-home",
   "blocks": [
     "hero-card",
     "columns-divider",
     "cards-icon"
   ],
-  "importScript": "0a6834bf2255"
+  "importScript": "bb3b71a98948"
 }
